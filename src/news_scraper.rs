@@ -157,6 +157,8 @@ impl NewsScraper {
             news.push_str(&format!("\n{}. {}", i + 1, news_headline));
         }
 
+        println!("{}", &news);
+
         news
     }
 }
