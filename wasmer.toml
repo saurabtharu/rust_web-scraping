@@ -1,0 +1,21 @@
+[package]
+name = 'baruas/news-scraper'
+version = '0.1.0'
+description = 'hackernews web scraping in rust'
+# readme = 'README.md'
+wasmer-extra-flags = "--net --enable-threads --enable-bulk-memory"
+
+
+[dependencies]
+
+# See more keys and definitions at https://docs.wasmer.io/registry/manifest
+
+[[module]]
+name = 'news-scraper'
+source = './target/wasm32-wasmer-wasi/release/news-scraper.wasm'
+abi = 'wasi'
+
+[[command]]
+name = 'news-scraper'
+module = 'news-scraper'
+runner = 'wasi@unstable_'

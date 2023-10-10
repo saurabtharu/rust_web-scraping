@@ -1,0 +1,4 @@
+kind: wasmer.io/App.v0
+name: news-scraper
+package: baruas/news-scraper# 👈🏼 The package name
+

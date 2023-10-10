@@ -1,5 +1,3 @@
-use std::{fmt::format, num};
-
 use colored::Colorize;
 use scraper::{ElementRef, Html};
 
@@ -61,7 +59,7 @@ impl NewsScraper {
         let athing_selector = scraper::Selector::parse(".athing").unwrap();
         let athing_elements = document.select(&athing_selector);
 
-        for (idx, athing_element) in athing_elements.enumerate() {
+        for athing_element in athing_elements {
             // on the element with class `athing` get the span with class `.titleline`
             let titleline_selector = scraper::Selector::parse(".titleline").unwrap();
             let titleline_element = athing_element.select(&titleline_selector).next().unwrap();
@@ -157,7 +155,7 @@ impl NewsScraper {
             news.push_str(&format!("\n{}. {}", i + 1, news_headline));
         }
 
-        println!("{}", &news);
+        // println!("{}", &news);
 
         news
     }
